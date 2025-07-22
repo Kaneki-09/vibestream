@@ -3,15 +3,16 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useSearchParams } from 'next/navigation';
+import { useSearchParams, useParams } from 'next/navigation';
 import { ArrowLeft, Bookmark, Share2, Minimize2, Search } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { contentFeed } from '@/lib/data';
 import SmartSearchModal from '@/components/search/smart-search-modal';
 
-export default function PlayerPage({ params }: { params: { id: string } }) {
+export default function PlayerPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const searchParams = useSearchParams();
+  const params = useParams();
   const video = contentFeed.find((v) => v.id === params.id);
 
   useEffect(() => {
