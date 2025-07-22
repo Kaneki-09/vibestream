@@ -40,7 +40,7 @@ export default function PlayerPage() {
             <ArrowLeft className="h-6 w-6" />
           </Button>
         </Link>
-        <h1 className="text-lg font-semibold truncate">{video.title}</h1>
+        <h1 className="text-lg font-semibold truncate px-4">{video.title}</h1>
         <div className="w-10"></div>
       </header>
 
@@ -55,7 +55,7 @@ export default function PlayerPage() {
         />
       </div>
 
-      <div className="absolute bottom-0 left-0 right-0 z-10 p-6 flex flex-col items-center gap-4 bg-gradient-to-t from-black/80 to-transparent">
+      <div className="absolute bottom-0 left-0 right-0 z-10 p-4 md:p-6 flex flex-col items-center gap-4 bg-gradient-to-t from-black/80 to-transparent">
         <Button
           onClick={() => setIsModalOpen(true)}
           className="w-full max-w-sm h-14 text-lg font-bold rounded-full bg-primary/80 text-primary-foreground backdrop-blur-sm hover:bg-primary"
@@ -65,15 +65,15 @@ export default function PlayerPage() {
         </Button>
       </div>
       
-      <div className="absolute bottom-24 right-4 z-20 flex flex-col gap-3">
-          <Button variant="ghost" size="icon" className="h-14 w-14 rounded-full bg-white/20 text-white backdrop-blur-md hover:bg-white/30">
-            <Bookmark className="h-7 w-7" />
+      <div className="absolute bottom-28 md:bottom-24 right-4 z-20 flex flex-col gap-3">
+          <Button variant="ghost" size="icon" className="h-12 w-12 md:h-14 md:w-14 rounded-full bg-white/20 text-white backdrop-blur-md hover:bg-white/30">
+            <Bookmark className="h-6 w-6 md:h-7 md:w-7" />
           </Button>
-          <Button variant="ghost" size="icon" className="h-14 w-14 rounded-full bg-white/20 text-white backdrop-blur-md hover:bg-white/30">
-            <Share2 className="h-7 w-7" />
+          <Button variant="ghost" size="icon" className="h-12 w-12 md:h-14 md:w-14 rounded-full bg-white/20 text-white backdrop-blur-md hover:bg-white/30">
+            <Share2 className="h-6 w-6 md:h-7 md:w-7" />
           </Button>
-           <Button variant="ghost" size="icon" className="h-14 w-14 rounded-full bg-white/20 text-white backdrop-blur-md hover:bg-white/30">
-            <Minimize2 className="h-7 w-7" />
+           <Button variant="ghost" size="icon" className="h-12 w-12 md:h-14 md:w-14 rounded-full bg-white/20 text-white backdrop-blur-md hover:bg-white/30">
+            <Minimize2 className="h-6 w-6 md:h-7 md:w-7" />
           </Button>
         </div>
       

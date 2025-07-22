@@ -5,7 +5,7 @@ import { filterTags, trendingClips } from '@/lib/data';
 
 export default function DiscoverPage() {
   return (
-    <div className="container mx-auto max-w-4xl py-8 px-4">
+    <div className="container mx-auto max-w-6xl py-8 px-4">
       <header className="mb-8">
         <h1 className="text-4xl font-bold tracking-tight text-foreground">
           Discover
@@ -15,7 +15,7 @@ export default function DiscoverPage() {
         </p>
       </header>
 
-      <section className="mb-8">
+      <section className="mb-12">
         <h2 className="text-2xl font-semibold mb-4">Filter by Tags</h2>
         <ScrollArea className="w-full whitespace-nowrap rounded-md">
           <div className="flex w-max space-x-2 pb-4">
@@ -30,8 +30,8 @@ export default function DiscoverPage() {
       </section>
 
       <section>
-        <h2 className="text-2xl font-semibold mb-4">Trending Clips</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <h2 className="text-2xl font-semibold mb-6">Trending Clips</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {trendingClips.map((content) => (
             <ContentCard key={content.id} content={content} />
           ))}

@@ -7,7 +7,7 @@ import { Separator } from '@/components/ui/separator';
 
 export default function SettingsPage() {
   return (
-    <div className="min-h-screen bg-secondary/50">
+    <div className="bg-background min-h-screen">
       <div className="container mx-auto max-w-2xl py-8 px-4">
         <header className="relative flex items-center justify-center mb-8">
           <Link href="/profile" className="absolute left-0">
@@ -18,47 +18,49 @@ export default function SettingsPage() {
           <h1 className="text-2xl font-bold">Settings</h1>
         </header>
 
-        <Card>
-          <CardHeader>
-            <CardTitle>Preferences</CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <div className="p-4 rounded-lg bg-background">
-              <ThemeToggle />
-            </div>
-            <Separator />
-            <button className="w-full flex justify-between items-center p-4 rounded-lg bg-background hover:bg-accent/50 transition-colors">
-              <div className="flex items-center gap-2">
-                <History className="h-5 w-5" />
-                <span className="text-base">Manage Search History</span>
+        <div className="space-y-6">
+          <Card>
+            <CardHeader>
+              <CardTitle>Preferences</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-2">
+              <div className="p-4 rounded-lg bg-secondary/50">
+                <ThemeToggle />
               </div>
-              <ChevronRight className="h-5 w-5 text-muted-foreground" />
-            </button>
-          </CardContent>
-        </Card>
+              <Separator />
+              <button className="w-full flex justify-between items-center p-4 rounded-lg hover:bg-secondary/50 transition-colors">
+                <div className="flex items-center gap-3">
+                  <History className="h-5 w-5 text-muted-foreground" />
+                  <span className="text-base">Manage Search History</span>
+                </div>
+                <ChevronRight className="h-5 w-5 text-muted-foreground" />
+              </button>
+            </CardContent>
+          </Card>
 
-        <Card className="mt-6">
-          <CardHeader>
-            <CardTitle>Support & Info</CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <button className="w-full flex justify-between items-center p-4 rounded-lg bg-background hover:bg-accent/50 transition-colors">
-              <div className="flex items-center gap-2">
-                <MessageSquare className="h-5 w-5" />
-                <span className="text-base">Feedback</span>
+          <Card>
+            <CardHeader>
+              <CardTitle>Support & Info</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-2">
+              <button className="w-full flex justify-between items-center p-4 rounded-lg hover:bg-secondary/50 transition-colors">
+                <div className="flex items-center gap-3">
+                  <MessageSquare className="h-5 w-5 text-muted-foreground" />
+                  <span className="text-base">Feedback</span>
+                </div>
+                <ChevronRight className="h-5 w-5 text-muted-foreground" />
+              </button>
+              <Separator />
+              <div className="w-full flex justify-between items-center p-4 rounded-lg">
+                <div className="flex items-center gap-3">
+                  <Info className="h-5 w-5 text-muted-foreground" />
+                  <span className="text-base">App Info</span>
+                </div>
+                <span className="text-muted-foreground text-sm">VibeStream Lite v1.0.0</span>
               </div>
-              <ChevronRight className="h-5 w-5 text-muted-foreground" />
-            </button>
-            <Separator />
-            <div className="w-full flex justify-between items-center p-4 rounded-lg bg-background">
-              <div className="flex items-center gap-2">
-                <Info className="h-5 w-5" />
-                <span className="text-base">App Info</span>
-              </div>
-              <span className="text-muted-foreground">VibeStream Lite v1.0.0</span>
-            </div>
-          </CardContent>
-        </Card>
+            </CardContent>
+          </Card>
+        </div>
       </div>
     </div>
   );

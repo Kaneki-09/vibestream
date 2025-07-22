@@ -19,19 +19,18 @@ interface ContentCardProps {
 
 export default function ContentCard({ content }: ContentCardProps) {
   return (
-    <Card className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+    <Card className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col h-full">
       <CardHeader>
-        <CardTitle>{content.title}</CardTitle>
+        <CardTitle className="truncate">{content.title}</CardTitle>
         <CardDescription>{content.caption}</CardDescription>
       </CardHeader>
-      <CardContent className="p-0 relative">
-        <Link href={`/player/${content.id}`}>
+      <CardContent className="p-0 relative aspect-video">
+        <Link href={`/player/${content.id}`} className="block w-full h-full">
           <Image
             src={content.thumbnail}
             alt={content.title}
-            width={600}
-            height={400}
-            className="w-full h-auto object-cover"
+            fill
+            className="object-cover"
             data-ai-hint={content.dataAiHint}
           />
         </Link>
@@ -41,7 +40,7 @@ export default function ContentCard({ content }: ContentCardProps) {
           </Badge>
         )}
       </CardContent>
-      <CardFooter className="flex justify-end gap-2 p-4">
+      <CardFooter className="flex justify-end gap-2 p-4 mt-auto">
         <Link href={`/player/${content.id}?search=true`} passHref>
           <Button variant="outline" size="sm">
             <Search className="mr-2 h-4 w-4" />
