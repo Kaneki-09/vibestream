@@ -1,6 +1,7 @@
+
 'use client';
 
-import { useState, useRef, type ChangeEvent } from 'react';
+import { useState, useRef, type ChangeEvent, useEffect } from 'react';
 import {
   Sheet,
   SheetContent,
@@ -22,9 +23,10 @@ import Link from 'next/link';
 interface SmartSearchModalProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
+  videoThumbnail: string;
 }
 
-export default function SmartSearchModal({ open, onOpenChange }: SmartSearchModalProps) {
+export default function SmartSearchModal({ open, onOpenChange, videoThumbnail }: SmartSearchModalProps) {
   const { toast } = useToast();
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [file, setFile] = useState<File | null>(null);
@@ -32,6 +34,15 @@ export default function SmartSearchModal({ open, onOpenChange }: SmartSearchModa
   const [result, setResult] = useState<SearchContentFromMomentOutput | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (open) {
+      setFile(null);
+      setPreview(videoThumbnail);
+      setResult(null);
+      setError(null);
+    }
+  }, [open, videoThumbnail]);
 
   const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
     const selectedFile = e.target.files?.[0];
@@ -48,10 +59,29 @@ export default function SmartSearchModal({ open, onOpenChange }: SmartSearchModa
   };
 
   const handleSearch = async () => {
-    if (!file) {
+    let dataUri: string | null = null;
+    if (file) {
+      const reader = new FileReader();
+      dataUri = await new Promise((resolve) => {
+        reader.onload = (e) => resolve(e.target?.result as string);
+        reader.readAsDataURL(file);
+      });
+    } else if (preview && preview.startsWith('http')) {
+        const response = await fetch(preview);
+        const blob = await response.blob();
+        dataUri = await new Promise((resolve) => {
+            const reader = new FileReader();
+            reader.onload = (e) => resolve(e.target?.result as string);
+            reader.readAsDataURL(blob);
+        });
+    } else if (preview) {
+        dataUri = preview;
+    }
+
+    if (!dataUri) {
       toast({
-        title: 'No screenshot selected',
-        description: 'Please upload a screenshot to search.',
+        title: 'No image available',
+        description: 'Please upload or select a screenshot to search.',
         variant: 'destructive',
       });
       return;
@@ -61,26 +91,28 @@ export default function SmartSearchModal({ open, onOpenChange }: SmartSearchModa
     setError(null);
     setResult(null);
 
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onload = async () => {
-      const dataUri = reader.result as string;
-      try {
-        const res = await searchContentFromMoment({ screenshotDataUri: dataUri });
-        setResult(res);
-      } catch (err) {
-        console.error(err);
-        setError('Failed to analyze the moment. Please try again.');
-        toast({
-          title: 'Search Failed',
-          description: 'An error occurred while searching. Please try again later.',
-          variant: 'destructive',
-        });
-      } finally {
-        setIsLoading(false);
-      }
-    };
+    try {
+      const res = await searchContentFromMoment({ screenshotDataUri: dataUri });
+      setResult(res);
+    } catch (err) {
+      console.error(err);
+      setError('Failed to analyze the moment. Please try again.');
+      toast({
+        title: 'Search Failed',
+        description: 'An error occurred while searching. Please try again later.',
+        variant: 'destructive',
+      });
+    } finally {
+      setIsLoading(false);
+    }
   };
+  
+  const handleUseOriginalMoment = () => {
+    setFile(null);
+    setPreview(videoThumbnail);
+    setResult(null);
+    setError(null);
+  }
 
   return (
     <Sheet open={open} onOpenChange={onOpenChange}>
@@ -88,7 +120,7 @@ export default function SmartSearchModal({ open, onOpenChange }: SmartSearchModa
         <SheetHeader className="text-left">
           <SheetTitle>Smart Search</SheetTitle>
           <SheetDescription>
-            Find anything in the video. Use text, voice, or upload a screenshot.
+            Find anything in the video. Use text, voice, or upload a new screenshot.
           </SheetDescription>
         </SheetHeader>
 
@@ -114,7 +146,7 @@ export default function SmartSearchModal({ open, onOpenChange }: SmartSearchModa
             </div>
           )}
           
-          {preview && (
+          <div className="flex flex-col sm:flex-row gap-2">
              <Button onClick={handleSearch} disabled={isLoading} className="w-full">
                 {isLoading ? (
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
@@ -123,7 +155,12 @@ export default function SmartSearchModal({ open, onOpenChange }: SmartSearchModa
                 )}
                 Analyze this moment
               </Button>
-          )}
+              {file && (
+                <Button onClick={handleUseOriginalMoment} variant="outline" className="w-full sm:w-auto">
+                    Use Original Moment
+                </Button>
+              )}
+          </div>
 
           {isLoading && (
             <div className="space-y-4">

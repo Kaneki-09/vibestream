@@ -1,4 +1,5 @@
-import type { Content, SavedItem, User } from './types';
+
+import type { Content, SavedItem, User, SearchHistoryItem } from './types';
 
 export const contentFeed: Content[] = [
   { id: '1', title: 'Lofi Beats to Relax/Study to', caption: 'Chillhop Music', thumbnail: 'https://placehold.co/600x400.png', duration: '2:34:12', dataAiHint: 'lofi anime' },
@@ -22,6 +23,12 @@ export const userProfile: User = {
 export const savedItems: SavedItem[] = [
     { id: '1', title: 'Lofi Beats - Moment at 1:12:05', timestamp: '1:12:05', thumbnail: 'https://placehold.co/600x400.png', dataAiHint: 'lofi anime' },
     { id: '3', title: 'DIY Home Decor - Moment at 05:30', timestamp: '05:30', thumbnail: 'https://placehold.co/600x400.png', dataAiHint: 'home decor' },
+];
+
+export const searchHistory: SearchHistoryItem[] = [
+    { id: 'sh1', searchTerm: 'Cat playing piano', timestamp: '2023-10-27T10:00:00Z', videoId: '4', videoTitle: 'Funny Cat Videos That Will Make You Cry Laughing' },
+    { id: 'sh2', searchTerm: 'How to make a shelf', timestamp: '2023-10-27T11:30:00Z', videoId: '3', videoTitle: 'DIY Home Decor Ideas on a Budget' },
+    { id: 'sh3', searchTerm: 'Chill study music', timestamp: '2023-10-26T15:00:00Z', videoId: '1', videoTitle: 'Lofi Beats to Relax/Study to' },
 ];
 
 export const filterTags = ['#lofi', '#meme', '#anime', '#gaming', '#diy', '#music', '#tutorial', '#compilation'];

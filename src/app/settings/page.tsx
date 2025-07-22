@@ -1,3 +1,4 @@
+
 import Link from 'next/link';
 import { ArrowLeft, ChevronRight, History, MessageSquare, Info } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -28,13 +29,15 @@ export default function SettingsPage() {
                 <ThemeToggle />
               </div>
               <Separator />
-              <button className="w-full flex justify-between items-center p-4 rounded-lg hover:bg-secondary/50 transition-colors">
-                <div className="flex items-center gap-3">
-                  <History className="h-5 w-5 text-muted-foreground" />
-                  <span className="text-base">Manage Search History</span>
-                </div>
-                <ChevronRight className="h-5 w-5 text-muted-foreground" />
-              </button>
+              <Link href="/settings/history" passHref>
+                <button className="w-full flex justify-between items-center p-4 rounded-lg hover:bg-secondary/50 transition-colors">
+                  <div className="flex items-center gap-3">
+                    <History className="h-5 w-5 text-muted-foreground" />
+                    <span className="text-base">Manage Search History</span>
+                  </div>
+                  <ChevronRight className="h-5 w-5 text-muted-foreground" />
+                </button>
+              </Link>
             </CardContent>
           </Card>
 

@@ -1,3 +1,4 @@
+
 export type Content = {
   id: string;
   title: string;
@@ -19,3 +20,11 @@ export type User = {
     name: string;
     avatarUrl: string;
 };
+
+export type SearchHistoryItem = {
+  id: string;
+  searchTerm: string;
+  timestamp: string;
+  videoId: string;
+  videoTitle: string;
+}
