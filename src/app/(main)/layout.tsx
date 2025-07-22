@@ -8,7 +8,7 @@ export default function MainLayout({
 }) {
   return (
     <div className="flex flex-col min-h-screen bg-background">
-      <main className="flex-grow pb-24">{children}</main>
+      <main className="flex-grow pb-32">{children}</main>
       <BottomNav />
       <VibeCritter />
     </div>
