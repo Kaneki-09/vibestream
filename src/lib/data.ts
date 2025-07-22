@@ -1,5 +1,5 @@
 
-import type { Content, SavedItem, User, SearchHistoryItem } from './types';
+import type { Content, SavedItem, User, SearchHistoryItem, TranscriptItem } from './types';
 
 export const contentFeed: Content[] = [
   { id: '1', title: 'Lofi Beats to Relax/Study to', caption: 'Chillhop Music', thumbnail: 'https://placehold.co/600x400.png', duration: '2:34:12', dataAiHint: 'lofi anime' },
@@ -32,3 +32,11 @@ export const searchHistory: SearchHistoryItem[] = [
 ];
 
 export const filterTags = ['#lofi', '#meme', '#anime', '#gaming', '#diy', '#music', '#tutorial', '#compilation'];
+
+export const transcriptItems: TranscriptItem[] = [
+    { id: 't1', timestamp: '0:01', text: "I'm so excited to share this new song with you all. It's been a long time coming, and I can't wait for you to hear it." },
+    { id: 't2', timestamp: '0:15', text: "This song is about love, loss, and everything in between." },
+    { id: 't3', timestamp: '0:28', text: "I hope you enjoy it." },
+    { id: 't4', timestamp: '0:45', text: "This next part is my favorite, listen closely to the baseline." },
+    { id: 't5', timestamp: '1:02', text: "And that's a wrap! Thanks for listening." },
+];

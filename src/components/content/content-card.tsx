@@ -10,7 +10,7 @@ interface ContentCardProps {
 
 export default function ContentCard({ content }: ContentCardProps) {
   return (
-    <div className="soft-neumorphism overflow-hidden group transition-all duration-500 ease-in-out hover:shadow-lg hover:-translate-y-1">
+    <div className="soft-neumorphism overflow-hidden group transition-all duration-500 ease-in-out hover:shadow-lg hover:-translate-y-1 active:shadow-inner active:scale-95">
       <div className="relative">
         <Link href={`/player/${content.id}`} className="block w-full h-full">
             <Image
@@ -29,13 +29,13 @@ export default function ContentCard({ content }: ContentCardProps) {
         <p className="text-muted-foreground text-sm mt-1 truncate">{content.caption}</p>
         <div className="mt-4 flex space-x-4">
           <Link href={`/player/${content.id}`} passHref className="flex-1">
-            <Button variant="ghost" className="w-full soft-neumorphism-inset text-primary font-semibold hover:text-primary-foreground hover:bg-primary/90 transition-all duration-300 group-hover:bg-primary group-hover:text-primary-foreground group-hover:shadow-none">
+            <Button variant="ghost" className="w-full soft-neumorphism-inset text-primary font-semibold hover:text-primary-foreground hover:bg-primary/90 transition-all duration-300 group-hover:bg-primary group-hover:text-primary-foreground group-hover:shadow-none active:scale-95">
                 <Play />
                 <span>Play</span>
             </Button>
           </Link>
           <Link href={`/player/${content.id}?search=true`} passHref className="flex-1">
-             <Button variant="ghost" className="w-full soft-neumorphism-inset text-primary font-semibold hover:text-primary-foreground hover:bg-primary/90 transition-all duration-300">
+             <Button variant="ghost" className="w-full soft-neumorphism-inset text-primary font-semibold hover:text-primary-foreground hover:bg-primary/90 transition-all duration-300 active:scale-95">
                 <Search />
                 <span>Search</span>
             </Button>

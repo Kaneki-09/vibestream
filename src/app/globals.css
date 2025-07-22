@@ -17,7 +17,7 @@ body {
     --popover: 220 13% 97%;
     --popover-foreground: 220 13% 8%;
 
-    --primary: 348 100% 76%; /* #FF85A1 */
+    --primary: 0 100% 71%; /* #FF6B6B */
     --primary-foreground: 220 13% 8%;
 
     --secondary: 220 14% 93%;
@@ -26,7 +26,7 @@ body {
     --muted: 220 14% 93%;
     --muted-foreground: 222 21% 46%; /* #5F6B8C */
 
-    --accent: 348 100% 76%;
+    --accent: 0 100% 71%; /* #FF6B6B */
     --accent-foreground: 220 13% 8%;
 
     --destructive: 0 84.2% 60.2%;
@@ -34,7 +34,7 @@ body {
 
     --border: 220 13% 87%;
     --input: 220 13% 87%;
-    --ring: 348 100% 76%;
+    --ring: 0 100% 71%;
 
     --radius: 1.25rem; /* 20px */
 
@@ -55,7 +55,7 @@ body {
     --popover: 240 2% 17%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 171 100% 45%; /* #00F5D4 */
+    --primary: 180 100% 50%; /* #00FFFF - Cyan */
     --primary-foreground: 240 2% 17%;
     
     --secondary: 240 2% 12%;
@@ -64,7 +64,7 @@ body {
     --muted: 240 2% 12%;
     --muted-foreground: 0 0% 66%; /* #A9A9A9 */
 
-    --accent: 329 100% 50%; /* #FF007F */
+    --accent: 300 100% 50%; /* #FF00FF - Magenta */
     --accent-foreground: 0 0% 98%;
     
     --destructive: 0 62.8% 30.6%;
@@ -72,7 +72,7 @@ body {
 
     --border: 240 2% 25%;
     --input: 240 2% 25%;
-    --ring: 171 100% 45%;
+    --ring: 180 100% 50%;
 
     --chart-1: 220 70% 50%;
     --chart-2: 160 60% 45%;
@@ -94,19 +94,19 @@ body {
 
 @layer components {
   .soft-neumorphism {
-    @apply rounded-2xl bg-background shadow-[6px_6px_12px_#d2d3d7] dark:shadow-[6px_6px_12px_#242426] transition-all duration-300;
-    box-shadow: 6px 6px 12px #d2d3d7, -6px -6px 12px #ffffff;
+    @apply rounded-2xl bg-background transition-all duration-300;
+    box-shadow: 8px 8px 16px #d1d9e6, -8px -8px 16px #ffffff;
   }
   .dark .soft-neumorphism {
-    box-shadow: 6px 6px 12px #242426, -6px -6px 12px #343436;
+    box-shadow: 8px 8px 16px #222224, -8px -8px 16px #363638;
   }
 
   .soft-neumorphism-inset {
-    @apply rounded-2xl bg-background shadow-[inset_6px_6px_12px_#d2d3d7] dark:shadow-[inset_6px_6px_12px_#242426] transition-all duration-300;
-    box-shadow: inset 6px 6px 12px #d2d3d7, inset -6px -6px 12px #ffffff;
+    @apply rounded-2xl bg-background transition-all duration-300;
+    box-shadow: inset 8px 8px 16px #d1d9e6, inset -8px -8px 16px #ffffff;
   }
    .dark .soft-neumorphism-inset {
-    box-shadow: inset 6px 6px 12px #242426, inset -6px -6px 12px #343436;
+    box-shadow: inset 8px 8px 16px #222224, inset -8px -8px 16px #363638;
   }
   
   .text-gradient-shiny {

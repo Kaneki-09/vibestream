@@ -28,3 +28,9 @@ export type SearchHistoryItem = {
   videoId: string;
   videoTitle: string;
 }
+
+export type TranscriptItem = {
+    id: string;
+    timestamp: string;
+    text: string;
+}
