@@ -112,14 +112,16 @@ export default function PlayerPage() {
           </Button>
       </header>
       
-      <div ref={playerRef} className="relative w-full aspect-video rounded-2xl soft-neumorphism-inset overflow-hidden flex-shrink-0">
-        <Image
-            src={video.thumbnail}
-            alt={video.title}
-            layout="fill"
-            objectFit="cover"
-            data-ai-hint={video.dataAiHint}
-        />
+      <div className="px-4">
+        <div ref={playerRef} className="relative w-full aspect-video rounded-2xl soft-neumorphism-inset overflow-hidden flex-shrink-0">
+            <Image
+                src={video.thumbnail}
+                alt={video.title}
+                fill
+                objectFit="cover"
+                data-ai-hint={video.dataAiHint}
+            />
+        </div>
       </div>
 
       <div className="flex-grow overflow-y-auto mt-4 space-y-2 px-4">
