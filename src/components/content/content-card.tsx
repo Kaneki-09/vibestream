@@ -1,4 +1,3 @@
-
 'use client';
 
 import Image from 'next/image';
@@ -14,17 +13,12 @@ interface ContentCardProps {
 
 export default function ContentCard({ content }: ContentCardProps) {
   return (
-<<<<<<< HEAD
-    <div className="soft-neumorphism overflow-hidden group transition-all duration-500 ease-in-out hover:shadow-lg hover:-translate-y-1 active:shadow-inner active:scale-95">
-      <div className="relative">
-=======
     <motion.div 
       whileHover={{ y: -8, scale: 1.02 }}
       transition={{ type: "spring", stiffness: 300, damping: 20 }}
       className="soft-neumorphism overflow-hidden group border border-transparent hover:border-primary/20"
     >
       <div className="relative aspect-video overflow-hidden">
->>>>>>> b092b23 ("<!DOCTYPE html>)
         <Link href={`/player/${content.id}`} className="block w-full h-full">
             <Image
               src={content.thumbnail}
@@ -41,22 +35,13 @@ export default function ContentCard({ content }: ContentCardProps) {
         <p className="text-muted-foreground text-sm mt-2 line-clamp-2 leading-relaxed opacity-80">{content.caption}</p>
         <div className="mt-6 flex space-x-3">
           <Link href={`/player/${content.id}`} passHref className="flex-1">
-<<<<<<< HEAD
-            <Button variant="ghost" className="w-full soft-neumorphism-inset text-primary font-semibold hover:text-primary-foreground hover:bg-primary/90 transition-all duration-300 group-hover:bg-primary group-hover:text-primary-foreground group-hover:shadow-none active:scale-95">
-                <Play />
-=======
             <Button variant="ghost" className="w-full h-12 soft-neumorphism-inset text-primary font-bold hover:text-primary-foreground hover:bg-primary transition-all duration-300 active:scale-95">
                 <Play className="fill-current" />
->>>>>>> b092b23 ("<!DOCTYPE html>)
                 <span>Play</span>
             </Button>
           </Link>
           <Link href={`/player/${content.id}?search=true`} passHref className="flex-1">
-<<<<<<< HEAD
-             <Button variant="ghost" className="w-full soft-neumorphism-inset text-primary font-semibold hover:text-primary-foreground hover:bg-primary/90 transition-all duration-300 active:scale-95">
-=======
              <Button variant="ghost" className="w-full h-12 soft-neumorphism-inset text-accent font-bold hover:text-accent-foreground hover:bg-accent transition-all duration-300 active:scale-95">
->>>>>>> b092b23 ("<!DOCTYPE html>)
                 <Search />
                 <span>Vibe</span>
             </Button>
