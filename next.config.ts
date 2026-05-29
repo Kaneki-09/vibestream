@@ -17,12 +17,18 @@ const nextConfig: NextConfig = {
         port: '',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'picsum.photos',
+        port: '',
+        pathname: '/**',
+      }
     ],
   },
   experimental: {
-    // Other experimental features can go here
+    allowedDevOrigins: ['*'],
   },
-  allowedDevOrigins: ['*'],
+  allowedDevOrigins: ['*'], // Keeping as fallback for specific build requirements
 };
 
 export default nextConfig;

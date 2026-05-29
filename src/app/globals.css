@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -8,35 +9,51 @@ body {
 
 @layer base {
   :root {
-    --background: 220 13% 97%; /* #F5F6FA */
-    --foreground: 220 13% 8%; /* #111318 */
+    --background: 330 20% 98%;
+    --foreground: 330 10% 10%;
     
-    --card: 220 13% 97%;
-    --card-foreground: 220 13% 8%;
+    --card: 330 20% 98%;
+    --card-foreground: 330 10% 10%;
 
-    --popover: 220 13% 97%;
-    --popover-foreground: 220 13% 8%;
+    --popover: 330 20% 98%;
+    --popover-foreground: 330 10% 10%;
 
+<<<<<<< HEAD
     --primary: 224 82% 77%; /* #A7BFFF */
     --primary-foreground: 220 13% 8%;
+=======
+    --primary: 330 100% 70%; /* Pink */
+    --primary-foreground: 330 100% 98%;
+>>>>>>> b092b23 ("<!DOCTYPE html>)
 
-    --secondary: 220 14% 93%;
-    --secondary-foreground: 220 13% 8%;
+    --secondary: 330 20% 95%;
+    --secondary-foreground: 330 10% 10%;
 
-    --muted: 220 14% 93%;
-    --muted-foreground: 222 21% 46%; /* #5F6B8C */
+    --muted: 330 10% 92%;
+    --muted-foreground: 330 10% 40%;
 
+<<<<<<< HEAD
     --accent: 224 82% 77%; /* #A7BFFF */
     --accent-foreground: 220 13% 8%;
+=======
+    --accent: 280 100% 70%; /* Purple */
+    --accent-foreground: 330 100% 98%;
+>>>>>>> b092b23 ("<!DOCTYPE html>)
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
+<<<<<<< HEAD
     --border: 220 13% 87%;
     --input: 220 13% 87%;
     --ring: 224 82% 77%;
+=======
+    --border: 330 20% 90%;
+    --input: 330 20% 90%;
+    --ring: 330 100% 70%;
+>>>>>>> b092b23 ("<!DOCTYPE html>)
 
-    --radius: 1.25rem; /* 20px */
+    --radius: 1.5rem;
 
     --chart-1: 12 76% 61%;
     --chart-2: 173 58% 39%;
@@ -46,30 +63,41 @@ body {
   }
 
   .dark {
-    --background: 240 2% 17%; /* #2C2C2E */
-    --foreground: 0 0% 98%;
+    --background: 330 10% 8%;
+    --foreground: 330 10% 98%;
 
-    --card: 240 2% 17%;
-    --card-foreground: 0 0% 98%;
+    --card: 330 10% 8%;
+    --card-foreground: 330 10% 98%;
 
-    --popover: 240 2% 17%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 330 10% 8%;
+    --popover-foreground: 330 10% 98%;
 
+<<<<<<< HEAD
     --primary: 178 61% 63%; /* #68D8D6 - Mint */
     --primary-foreground: 240 2% 10%;
+=======
+    --primary: 330 100% 75%; 
+    --primary-foreground: 330 10% 10%;
+>>>>>>> b092b23 ("<!DOCTYPE html>)
     
-    --secondary: 240 2% 12%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 330 10% 12%;
+    --secondary-foreground: 330 10% 98%;
 
-    --muted: 240 2% 12%;
-    --muted-foreground: 0 0% 66%; /* #A9A9A9 */
+    --muted: 330 10% 15%;
+    --muted-foreground: 330 10% 60%;
 
+<<<<<<< HEAD
     --accent: 349 100% 86%; /* #FFB6C1 - Pink */
     --accent-foreground: 240 2% 10%;
+=======
+    --accent: 280 100% 75%; 
+    --accent-foreground: 330 10% 10%;
+>>>>>>> b092b23 ("<!DOCTYPE html>)
     
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
 
+<<<<<<< HEAD
     --border: 240 2% 25%;
     --input: 240 2% 25%;
     --ring: 178 61% 63%;
@@ -79,6 +107,11 @@ body {
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
+=======
+    --border: 330 10% 20%;
+    --input: 330 10% 20%;
+    --ring: 330 100% 75%;
+>>>>>>> b092b23 ("<!DOCTYPE html>)
   }
 }
 
@@ -88,12 +121,13 @@ body {
   }
   body {
     @apply bg-background text-foreground;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1), color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
 
 @layer components {
   .soft-neumorphism {
+<<<<<<< HEAD
     @apply rounded-2xl bg-background transition-all duration-300;
     box-shadow: 8px 8px 16px #d1d9e6, -8px -8px 16px #ffffff;
   }
@@ -107,13 +141,36 @@ body {
   }
    .dark .soft-neumorphism-inset {
     box-shadow: inset 8px 8px 16px #222224, inset -8px -8px 16px #363638;
+=======
+    @apply rounded-3xl bg-background transition-all duration-500 ease-in-out;
+    box-shadow: 12px 12px 24px #e0e5ec, -12px -12px 24px #ffffff;
+  }
+  .dark .soft-neumorphism {
+    box-shadow: 8px 8px 16px #080808, -8px -8px 16px #1a1a1a;
+  }
+
+  .soft-neumorphism-inset {
+    @apply rounded-3xl bg-background transition-all duration-500 ease-in-out;
+    box-shadow: inset 8px 8px 16px #e0e5ec, inset -8px -8px 16px #ffffff;
+  }
+  .dark .soft-neumorphism-inset {
+    box-shadow: inset 8px 8px 16px #080808, inset -8px -8px 16px #1a1a1a;
+>>>>>>> b092b23 ("<!DOCTYPE html>)
   }
   
   .text-gradient-shiny {
-      background: linear-gradient(45deg, hsl(var(--primary)), hsl(var(--accent)));
+      background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
       text-fill-color: transparent;
   }
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
